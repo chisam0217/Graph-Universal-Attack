@@ -1,7 +1,7 @@
 # Graph-Universal-Attack
 
 ## Usage
-* PyTorch 0.4 or 0.5 \
+* PyTorch 0.4 or 0.5 
 * Python 2.7 or 3.6
 
 ## Train the attack model
