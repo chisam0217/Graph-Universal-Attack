@@ -7,6 +7,8 @@ test: Graph-Universal-Attack
 *dataset: the network dataset you are going to attack* \
 *radius: the radius of the l2 Norm Projection*
 
+The verision of jupyter notebook is also supported as: universal_attack.ipynb
+
 ## Evaluate the test asr
 after finishing the training of the GUA, we then evaluate the test asr over the test nodes
 **Example:** python eval_baseline --dataset cora --radius 4 --evaluate_mode universal \
@@ -15,3 +17,5 @@ after finishing the training of the GUA, we then evaluate the test asr over the 
 * "limitted_attack": limitted attack
 * "victim_attack": victim attack
 * "universal_delete": randomly delete a part of nodes from the trained anchor nodes, to find the trade-off
+
+The verision of jupyter notebook is also supported as: evaluate.ipynb
