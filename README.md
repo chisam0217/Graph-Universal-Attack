@@ -1,5 +1,5 @@
 # Graph-Universal-Attack
-test: Graph-Universal-Attack
+
 
 ## Train the attack model
 
