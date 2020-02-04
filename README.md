@@ -18,7 +18,7 @@ After finishing the training of the GUA, we then evaluate the test asr over the 
 **Example:** python eval_baseline --dataset cora --radius 4 --evaluate_mode universal \
 *dataset: the network dataset you are going to attack* \
 *radius: the radius of the l2 Norm Projection*
-*evaluate_mode* has four values: 
+*evaluate_mode* has five values: 
 * "universal": graph universal attack
 * "limitted_attack": limitted attack
 * "global_random": global random attack
