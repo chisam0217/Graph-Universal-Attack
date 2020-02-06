@@ -13,7 +13,7 @@
 The verision of jupyter notebook is also supported as: universal_attack.ipynb
 
 ## Evaluate the test ASR
-After finishing the training of the GUA, we then evaluate the test asr over the test nodes \
+After finishing the training of the GUA, we then evaluate the test asr over the test nodes 
 
 **Example:** python eval_baseline --dataset cora --radius 4 --evaluate_mode universal \
 *dataset: the network dataset you are going to attack* \
