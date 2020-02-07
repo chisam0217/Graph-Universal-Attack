@@ -3,6 +3,7 @@
 ## Usage
 * PyTorch 0.4 or 0.5 
 * Python 2.7 or 3.6
+* networkx, scipy, sklearn, numpy, pickle
 
 ## Train the attack model
 
