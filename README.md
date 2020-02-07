@@ -5,7 +5,7 @@
 * Python 2.7 or 3.6
 * networkx, scipy, sklearn, numpy, pickle
 
-## Train the attack model
+## Train the attack model 
 
 **Example:** python generate_perturbation.py --dataset cora --radius 4 \
 
