@@ -31,3 +31,6 @@ After finishing the training of the GUA, we then evaluate the test asr over the 
 The perturbation results trained by GUA when **radius = 4**, for each dataset: Cora, Citeseer and Pol.Blogs are also listed in "GUA/perturbation_results", which can be used directly for testing
 
 The verision of jupyter notebook is also supported as: evaluate.ipynb
+
+You can also validate the transferability on other embedding methods:
+**Node2vec**: python node2vec/evaluate_n2v --dataset cora
