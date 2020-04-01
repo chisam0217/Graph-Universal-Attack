@@ -169,7 +169,7 @@ def load_data(dataset_str):
     names = ['x', 'y', 'tx', 'ty', 'allx', 'ally', 'graph']
     objects = []
     for i in range(len(names)):
-        with open("/home/xiao/Documents/pygcn/data/data/ind.{}.{}".format(dataset_str, names[i]), 'rb') as f:
+        with open("../../data/data/ind.{}.{}".format(dataset_str, names[i]), 'rb') as f:
             if sys.version_info > (3, 0):
                 objects.append(pkl.load(f, encoding='latin1'))
             else:
