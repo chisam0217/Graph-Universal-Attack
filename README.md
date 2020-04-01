@@ -32,5 +32,5 @@ The perturbation results trained by GUA when **radius = 4**, for each dataset: C
 
 The verision of jupyter notebook is also supported as: evaluate.ipynb
 
-You can also validate the transferability on other embedding methods:
+You can also validate the transferability on other embedding methods: \
 **Node2vec**: python node2vec/evaluate_n2v --dataset cora
