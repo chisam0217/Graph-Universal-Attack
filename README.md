@@ -28,7 +28,7 @@ After finishing the training of the GUA, we then evaluate the test asr over the 
 * "victim_attack": victim attack
 * "universal_delete": randomly delete a part of nodes from the trained anchor nodes, to find the trade-off
 
-The perturbation results trained by GUA when **radius = 4**, for each dataset: Cora, Citeseer and Pol.Blogs are also listed in "GUA/perturbation_results", which can be used directly for testing
+The perturbation results trained by GUA when **radius = 4**, for each dataset: Cora, Citeseer and Pol.Blogs are also provided in "GUA/perturbation_results", which can be used directly for testing
 
 The verision of jupyter notebook is also supported as: evaluate.ipynb
 
