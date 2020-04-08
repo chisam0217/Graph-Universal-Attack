@@ -197,7 +197,7 @@ def main():
 	
 	for i in range(10):
 		print ('The perturbation idx', i)
-		perturb = np.array([float(line.rstrip('\n')) for line in open('../../GUA/perturbation_results/{1}_xi4_epoch100/perturbation_{1}_{0}.txt'.format(i, args.dataset))])
+		perturb = np.array([float(line.rstrip('\n')) for line in open('../GUA/perturbation_results/{1}_xi4_epoch100/perturbation_{1}_{0}.txt'.format(i, args.dataset))])
 		perturb = np.where(perturb>0.5, 1, 0)
 		pt = np.where(perturb>0)[0].tolist()
 		print ('The perturbations are', pt)
