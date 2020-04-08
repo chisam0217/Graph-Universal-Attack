@@ -34,4 +34,5 @@ The verision of jupyter notebook is also supported as: evaluate.ipynb
 
 You can also validate the transferability on other embedding methods: \
 **Node2vec**: python node2vec/evaluate_n2v --dataset cora \
-**DeepWalk**: python deepwalk/evaluate_deepwalk --dataset cora 
+**DeepWalk**: python deepwalk/evaluate_deepwalk --dataset cora \
+**pyGAT**: python pyGAT/evaluate_GAT --dataset cora
