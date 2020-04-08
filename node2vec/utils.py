@@ -176,7 +176,7 @@ def load_data(dataset_str):
                 objects.append(pkl.load(f))
 
     x, y, tx, ty, allx, ally, graph = tuple(objects)
-    test_idx_reorder = parse_index_file("../../data/data/ind.{}.test.index".format(dataset_str))
+    test_idx_reorder = parse_index_file("../data/data/ind.{}.test.index".format(dataset_str))
 
     test_idx_range = np.sort(test_idx_reorder)
     # print (test_idx_range)
@@ -298,7 +298,7 @@ def sparse_mx_to_torch_sparse_tensor(sparse_mx):
 # idx = train_val_test_split_tabular(np.arange(adj.shape[0]), 0.1, 0.1, 0.8, labels)
 
 
-def load_polblogs_data(filepath = '../../data/data/polblogs.npz'):
+def load_polblogs_data(filepath = '../data/data/polblogs.npz'):
     _A_obs, _X_obs, _z_obs = load_npz(filepath)
     if _X_obs is None:
         _X_obs = sp.eye(_A_obs.shape[0]).tocsr()
