@@ -416,7 +416,7 @@ def universal_attack(attack_epoch, max_epoch):
         if fooling_rate >= cur_foolingrate:
             cur_foolingrate = fooling_rate
             file_path = op.join(folder_path, '{1}_xi{2}_epoch100/perturbation_{1}_{0}.txt'.format(attack_epoch, args.dataset, args.radius))
-            with open(file_path) as f:
+            with open(file_path, "w") as f:
                 for i in v:
                     f.write(str(i) + '\n')
 #################
