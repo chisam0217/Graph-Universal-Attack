@@ -1,4 +1,4 @@
-# Graph Universal Attack (GUA)
+# Graph Universal Adversarial Attack (GUA)
 
 ## Usage
 * PyTorch 0.4 or 0.5 
