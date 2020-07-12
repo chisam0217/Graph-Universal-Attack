@@ -86,8 +86,6 @@ def train(epoch):
     output = model(features, x)
     loss_train = F.nll_loss(output[idx_train], labels[idx_train])
     acc_train = accuracy(output[idx_train], labels[idx_train])
-#     print ('output', output.size())
-#     print ('labels', labels.size())
     loss_train.backward()
 
     optimizer.step()
@@ -125,27 +123,17 @@ for epoch in range(args.epochs):
 print("Optimization Finished!")
 print("Total time elapsed: {:.4f}s".format(time.time() - t_total))
 
-# torch.save(model, './cora_gcn.pth')
-# torch.save(model.state_dict(), 'cora_gcn.pkl')
 
 # Testing
 ori_output = test(adj)
 
 def add_perturb(input_adj, idx, perturb):
     # (1-x)A + x(1-A)
-#     input_adj = input_adj.toarray()
-
     x = np.zeros((input_adj.shape[0], input_adj.shape[1]))
     x[idx] = perturb  
     x[:,idx] = perturb
-#     print ('x', x[idx])
-
-    
-#     x += np.transpose(x) #change the idx'th row and column
     x1 = np.ones((input_adj.shape[0], input_adj.shape[1])) - x
-#     print ('x1', x1[idx])
     adj2 = np.ones((input_adj.shape[0], input_adj.shape[1])) - input_adj
-#     print ('adj2', adj2[idx])
 
     for i in range(input_adj.shape[0]):      
         adj2[i][i] = 0
@@ -155,27 +143,12 @@ def add_perturb(input_adj, idx, perturb):
 
 def evaluate_attack(perturb):
     res = []
-    # perturb = np.where(perturb>0.5, 1, 0)
     print ('perturb', perturb)
     new_pred = []
     for i in range(num_classes):
         new_pred.append(0)
     for k in idx_test:
-#     for k in range(1):
         innormal_x_p = add_perturb(tmp_adj, k, perturb)
-#         innormal_x_p = np.where(innormal_x_p<0.5, 0, 1)
-
-#         diff = innormal_x_p[k] - tmp_adj[k]
-#         diff_idx = np.where(diff != 0 )
-        
-#         print ('diff_idx', diff_idx)
-    #     one_idx = np.where(innormal_x_p[k]==1)[0]
-    #     zero_idx = np.where(innormal_x_p[k]!=1)[0]
-    #     total_idx = one_idx.shape[0] + zero_idx.shape[0]
-    #     print ('total_idx', total_idx)
-    #     print ('one_idx', one_idx)
-    #     print ('corresponding perturb', perturb[one_idx])
-    #     print (innormal_x_p[k][one_idx])
         x_p, degree_p = normalize(innormal_x_p + np.eye(tmp_adj.shape[0]))
         x_p = torch.from_numpy(x_p.astype(np.float32))
         x_p = x_p.cuda()
@@ -241,13 +214,6 @@ elif args.evaluate_mode == "global_random":
     fool_res = []
     p_times = []
     for i in range(10):
-#         perturb = np.array([float(line.rstrip('\n')) for line in open("perturbation.txt")])
-#         perturb = np.where(perturb>0.5, 1, 0)
-#         perturb_times = sum(perturb)
-        # perturb = np.zeros(adj.shape[1])
-        #the perturbation times of our universal perturbation
-        # attack_index = list(np.random.choice(range(adj.shape[1]), perturb_times, replace = False))
-        # perturb[attack_index] = 1
         prob = float(perturb_times / tmp_adj.shape[0])
         perturb = np.random.choice(2, tmp_adj.shape[0], p = [1-prob, prob])
         print ('the prob is', prob)
@@ -269,15 +235,10 @@ elif args.evaluate_mode == "limitted_random":
     fool_res = []
     p_times = []
     for i in range(10):
-#         perturb = np.array([float(line.rstrip('\n')) for line in open("perturbation.txt")])
-#         perturb = np.where(perturb>0.5, 1, 0)
-#         perturb_times = sum(perturb)
         perturb = np.zeros(adj.shape[1])
-        #the perturbation times of our universal perturbation
         attack_index = list(np.random.choice(range(adj.shape[1]), perturb_times, replace = False))
         perturb[attack_index] = 1
         pt = np.where(perturb>0)[0]
-#         print ('the perturbation is', pt)
         res, new_pred = evaluate_attack(perturb)
         fool_res.append(res)
 
@@ -292,12 +253,9 @@ elif args.evaluate_mode == "victim_attak":
     #the perturbation times of our universal perturbation
     perturb_time = 8 #set this equal to the ceil of the number of anchor nodes computed by universal attack
     fool_res = []
-#     p_times = []
     for k in range(num_classes):
-#     for k in range(4,6):
         each_fool_res = []
         idx = np.where(labels.cpu().numpy()==k)[0]
-#         for i in range(1):
         for i in range(10):
             attack_index = list(np.random.choice(idx, perturb_time, replace = False))
             perturb = np.zeros(adj.shape[1])
